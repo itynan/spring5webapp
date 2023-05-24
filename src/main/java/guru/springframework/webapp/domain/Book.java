@@ -23,7 +23,7 @@ public class Book extends Publisher {
         this.isbn  = isbn;
     }
 
-    public long getId(){
+    public Long getId(){
         return id;
     }
     public void setId(long id){

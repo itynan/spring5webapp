@@ -17,12 +17,6 @@ public class Publisher {
     private String state;
     private int zip;
 
-    @OneToMany
-    @JoinTable(name = "book_publisher", @JoinColumn(name ="book_id"),
-    inverseJoinColumns = @JoinColumn(name = "publisher_id"))
-
-    private Set<Publisher> publishers = new HashSet<>();
-
     public Publisher(String name, String addressLine1, String city,
                      String state, int zip){
         this.name = name;
@@ -32,14 +26,6 @@ public class Publisher {
     }
     public Publisher(){
 
-    }
-
-    public Set<Publisher> getPublishers() {
-        return publishers;
-    }
-
-    public void setPublishers(Set<Publisher> publishers) {
-        this.publishers = publishers;
     }
 
     public void setId(Long id) {
