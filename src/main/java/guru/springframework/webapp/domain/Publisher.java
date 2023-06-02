@@ -1,7 +1,7 @@
 package guru.springframework.webapp.domain;
 
 import jakarta.persistence.*;
-
+import guru.springframework.webapp.domain.Book;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -16,6 +16,9 @@ public class Publisher {
     private String city;
     private String state;
     private int zip;
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books = new HashSet<>();
 
     public Publisher(String name, String addressLine1, String city,
                      String state, int zip){
@@ -26,6 +29,13 @@ public class Publisher {
     }
     public Publisher(){
 
+    }
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     public void setId(Long id) {
